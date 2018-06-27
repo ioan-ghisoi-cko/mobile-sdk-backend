@@ -3,6 +3,12 @@
     "description": "A same backend for the frames-android",
     "repository": "https://github.com/ioan-ghisoi-cko/mobile-sdk-backend",
     "logo": "https://www.checkout.com/static/img/checkout-logo/logo.svg",
-    "keywords": ["node", "express", "static"]
+    "keywords": ["node", "express", "static"],
+    "env": {
+      "key": {
+        "description": "Your sandbox secret key",
+        "required": true
+      }
+    }
   }
   

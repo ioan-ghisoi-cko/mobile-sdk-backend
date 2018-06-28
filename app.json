@@ -1,6 +1,6 @@
 {
     "name": "Mobile SDK Backed",
-    "description": "A same backend for the frames-android",
+    "description": "A sample backend for the frames-android",
     "repository": "https://github.com/ioan-ghisoi-cko/mobile-sdk-backend",
     "logo": "https://www.checkout.com/static/img/checkout-logo/logo.svg",
     "keywords": ["node", "express", "static"],

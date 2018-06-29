@@ -70,7 +70,7 @@ The response will have the following form:
 The response will have the following form:
 ```json
 {
-  cardList : [
+  "cardList" : [
       {
         "paymentMethod" : "Visa",
         "last4" : "4242",

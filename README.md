@@ -74,12 +74,12 @@ The response will have the following form:
       {
         "paymentMethod" : "Visa",
         "last4" : "4242",
-        "customerId" : "cust_XXXX",
+        "cardId" : "card_XXXX",
       },
         {
         "paymentMethod" : "Mastercard",
         "last4" : "9399",
-        "customerId" : "cust_XXXX",
+        "cardId" : "card_XXXX",
       }
    ]
 }

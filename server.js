@@ -102,7 +102,7 @@ app.get('/cardlist', function (req, res) {
                 myResponse.push({
                     "paymentMethod" : arrayItem.paymentMethod,
                     "last4" : arrayItem.last4,
-                    "customerId" : arrayItem.customerId,
+                    "cardId" : arrayItem.id,
                 })
             });
             res.send({

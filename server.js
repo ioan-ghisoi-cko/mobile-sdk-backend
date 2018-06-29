@@ -84,6 +84,69 @@ app.post('/charge3d', function (req, res) {
         });
 });
 
+app.get('/cardlist', function (req, res) {
+    var options = {
+        uri: 'https://sandbox.checkout.com/api2/v2/customers/cust_93B95A58-AECF-4B2D-962B-B3784ED44755/cards',
+        headers: {
+            'authorization': process.env.KEY,
+        },
+        json: true // Automatically parses the JSON string in the response
+    };
+
+    // GET THE CUSTOMER CARDS
+    request(options)
+        .then(function (response) {
+            console.log(response);
+            var myResponse = [];
+            response.data.forEach(function (arrayItem) {
+                myResponse.push({
+                    "paymentMethod" : arrayItem.paymentMethod,
+                    "last4" : arrayItem.last4,
+                    "customerId" : arrayItem.customerId,
+                })
+            });
+            res.send(myResponse);
+        })
+        .catch(function (err) {
+            res.send(err.error);
+        });
+});
+
+app.post('/zerodollar', function (req, res) {
+    var options = {
+
+        method: 'post',
+
+        url: "http://sandbox.checkout.com/api2/v2/charges/token",
+
+        headers: {
+            'authorization': process.env.KEY,
+        },
+
+        body: {
+            cardToken  : req.body.token,    // CARD TOKEN GENERATE BY THE SDK
+            value      : 0,
+            currency   : "USD",
+            autoCapture: "N",
+            email      : "test@email.com",
+            chargeMode : 1,                 // INDICATE A NORMAL CHARGE
+        },
+        json: true,
+
+    }
+
+    // PERFORM CHARGE REQUEST AND RETURN {customerId}
+    request(options)
+        .then(function (response) {
+            res.send({
+                'customerId': response.card.customerId,
+            });
+        })
+        .catch(function (err) {
+            res.send(err.error);
+        });
+});
+
 server.listen(port, function () {
     console.log("Node server running on port"+port);
 });

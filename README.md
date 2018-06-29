@@ -69,17 +69,19 @@ The response will have the following form:
 
 The response will have the following form:
 ```json
-[
-  {
-    "paymentMethod" : "Visa",
-    "last4" : "4242",
-    "customerId" : "cust_XXXX",
-  },
-    {
-    "paymentMethod" : "Mastercard",
-    "last4" : "9399",
-    "customerId" : "cust_XXXX",
-  }
-]
+{
+  cardList : [
+      {
+        "paymentMethod" : "Visa",
+        "last4" : "4242",
+        "customerId" : "cust_XXXX",
+      },
+        {
+        "paymentMethod" : "Mastercard",
+        "last4" : "9399",
+        "customerId" : "cust_XXXX",
+      }
+   ]
+}
 ```
 >This request will return a list of cards for a specific customer. For simplicity the customer id needed in the request is allready added. If you want to test with your own keys make sure you update the customer id in the **server.js** file, and redeploy.

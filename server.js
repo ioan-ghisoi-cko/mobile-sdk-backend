@@ -105,7 +105,9 @@ app.get('/cardlist', function (req, res) {
                     "customerId" : arrayItem.customerId,
                 })
             });
-            res.send(myResponse);
+            res.send({
+                "cardList": myResponse
+            });
         })
         .catch(function (err) {
             res.send(err.error);
